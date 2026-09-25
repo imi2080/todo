@@ -93,15 +93,17 @@
 
 ```
 todo/
-├─ app/
-│  ├─ main.py        # FastAPI 앱, 라우터 등록, 정적 파일 마운트
-│  ├─ models.py      # SQLAlchemy 모델
-│  ├─ schemas.py     # Pydantic 스키마
-│  ├─ routers/       # todos.py, categories.py, auth.py
-│  └─ db.py
-├─ static/           # index.html, style.css, api.js, ui.js, app.js
-├─ tests/
-├─ requirements.txt
+├─ backend/
+│  ├─ app/
+│  │  ├─ main.py        # FastAPI 앱, 라우터 등록, frontend/ 정적 파일 마운트
+│  │  ├─ models.py      # SQLAlchemy 모델
+│  │  ├─ schemas.py     # Pydantic 스키마
+│  │  ├─ routers/       # todos.py, categories.py, auth.py
+│  │  └─ db.py
+│  ├─ tests/
+│  └─ requirements.txt
+├─ frontend/            # index.html, style.css, api.js, ui.js, app.js
+├─ designs/             # 화면 설계: main-screen.xml, login-screen.xml, settings-screen.xml
 ├─ PRD.md
 └─ CLAUDE.md
 ```

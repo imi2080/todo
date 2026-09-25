@@ -9,7 +9,8 @@ from app import models  # noqa: F401  (모델을 import해야 Base.metadata에 �
 from app.db import Base, engine
 from app.routers import todos
 
-STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
+# backend/app/main.py 기준으로 두 단계 위(프로젝트 루트)의 frontend/ 폴더
+STATIC_DIR = Path(__file__).resolve().parents[2] / "frontend"
 
 
 @asynccontextmanager

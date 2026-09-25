@@ -19,28 +19,35 @@
 ## 프로젝트 구조
 
 ```
-app/
-  main.py       # FastAPI 앱, 라우터 등록, 정적 파일 마운트
-  db.py         # 엔진, 세션
-  models.py     # SQLAlchemy 모델 (DB 매핑)
-  schemas.py    # Pydantic 스키마 (API 계약)
-  routers/      # todos.py, categories.py, auth.py
-static/
-  index.html    # 구조
-  style.css     # 표현
-  api.js        # 서버 통신(fetch)만 담당
-  ui.js         # DOM 렌더링만 담당
-  app.js        # api.js와 ui.js를 연결, 화면 상태 관리
-tests/
+backend/
+  app/
+    main.py       # FastAPI 앱, 라우터 등록, frontend/ 정적 파일 마운트
+    db.py         # 엔진, 세션
+    models.py     # SQLAlchemy 모델 (DB 매핑)
+    schemas.py    # Pydantic 스키마 (API 계약)
+    routers/      # todos.py, categories.py, auth.py
+  tests/
+  requirements.txt
+frontend/
+  index.html      # 구조
+  style.css       # 표현
+  api.js          # 서버 통신(fetch)만 담당
+  ui.js           # DOM 렌더링만 담당
+  app.js          # api.js와 ui.js를 연결, 화면 상태 관리
+designs/          # 화면 설계 (draw.io 형식 XML)
+  main-screen.xml, login-screen.xml, settings-screen.xml
 ```
+
+- 서버는 하나다. `backend`가 API(`/api/*`)와 `frontend/` 파일(`/`)을 함께 제공한다.
 
 ## 실행 명령 (Windows PowerShell)
 
 ```powershell
-python -m venv .venv
+python -m venv .venv                 # 프로젝트 루트에서
 .venv\Scripts\Activate.ps1
+cd backend                           # 이후 명령은 backend/ 에서 실행 (todo.db도 여기 생성)
 pip install -r requirements.txt
-uvicorn app.main:app --reload      # http://127.0.0.1:8000 , API 문서: /docs
+uvicorn app.main:app --reload        # http://127.0.0.1:8000 , API 문서: /docs
 pytest
 ```
 
