@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TODO</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>TODO</h1>
+
+    <form id="add-form" class="add-form">
+      <input id="new-title" type="text" required maxlength="200" placeholder="할 일을 입력하고 Enter" aria-label="할 일 제목" autofocus>
+      <input id="new-note" type="text" maxlength="2000" placeholder="메모 (선택)" aria-label="메모">
+      <button type="submit">추가</button>
+    </form>
+
+    <p id="error" class="error" role="alert" hidden></p>
+
+    <ul id="todo-list" class="todo-list"></ul>
+    <p id="empty" class="empty" hidden>할 일이 없습니다. 위에서 추가해 보세요.</p>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

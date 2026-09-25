@@ -1,0 +1,99 @@
+/* 책임: 화면 표현(스타일)만 담당 */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --text: #1f2328;
+  --muted: #6b7280;
+  --border: #d8dee4;
+  --accent: #2563eb;
+  --danger: #b91c1c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1 { margin: 0 0 16px; }
+
+input[type="text"] {
+  padding: 8px 10px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: inherit;
+  min-width: 0;
+}
+
+button {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+button.secondary { background: var(--surface); color: var(--accent); }
+button.danger { background: var(--surface); color: var(--danger); border-color: var(--danger); }
+
+.add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.add-form #new-title { flex: 2 1 200px; }
+.add-form #new-note { flex: 1 1 140px; }
+
+.error {
+  margin: 12px 0 0;
+  padding: 8px 12px;
+  border: 1px solid var(--danger);
+  border-radius: 6px;
+  color: var(--danger);
+  background: #fef2f2;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.todo input[type="checkbox"] { width: 18px; height: 18px; flex: none; }
+
+.todo-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.todo-title { overflow-wrap: anywhere; }
+.todo-note { color: var(--muted); font-size: 0.875rem; overflow-wrap: anywhere; }
+.todo.done .todo-title { text-decoration: line-through; color: var(--muted); }
+
+.todo-actions { display: flex; gap: 6px; flex: none; }
+
+.edit-form { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+.edit-form input { flex: 1 1 160px; }
+
+.empty { color: var(--muted); text-align: center; margin-top: 24px; }
+
+[hidden] { display: none !important; }
